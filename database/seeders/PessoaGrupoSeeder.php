@@ -15,28 +15,32 @@ class PessoaGrupoSeeder extends Seeder
     {
         $items = [
             [
-                'nome' => 'NFs',
-                'notas' => 'Nota fiscal de serviço eletrônica.'
+                'nome' => 'Fornecedor',
+                'notas' => 'Fornece mercadorias e produtos.'
             ],
             [
-                'nome' => 'NF danf',
-                'notas' => 'Nota fiscal eletrônica.'
+                'nome' => 'Prestador',
+                'notas' => 'Presta serviços mediante NFs ou RPA.'
             ],
             [
-                'nome' => 'NFe',
-                'notas' => 'Nota fiscal paulista.'
+                'nome' => 'Colaborador',
+                'notas' => 'Funcionário CLT.'
             ],
             [
-                'nome' => 'RPA',
-                'notas' => 'Recibo de profissional autônomo.'
+                'nome' => 'Benfeitor',
+                'notas' => 'Presta benfeitorias doando quantias, materiais ou produtos.'
             ],
             [
-                'nome' => 'RPS',
-                'notas' => 'Recibo provisório de serviços.'
+                'nome' => 'Padrinho',
+                'notas' => 'Doador de quantias recorrentes.'
             ],
             [
-                'nome' => 'Guia receita federal',
-                'notas' => 'Abrangência CDP.'
+                'nome' => 'Voluntário',
+                'notas' => 'Presta benfeitoria com serviço voluntário.'
+            ],
+            [
+                'nome' => 'Associado',
+                'notas' => 'Membro do CSMP.'
             ],
         ];
 
