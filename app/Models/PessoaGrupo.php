@@ -27,7 +27,7 @@ class PessoaGrupo extends Model
      * RELACIONAMENTO: Os PessoaGrupos 'pertencem a várias' Pessoas. 
      * Obtenha esses registros.
      */
-    public function areas(): BelongsToMany
+    public function pessoas(): BelongsToMany
     {
         return $this->belongsToMany(Pessoa::class,'pessoas_grupos_pivot','pessoa_id','pessoa_grupo_id')
             //->whereNull('areas_eventos_pivot.deleted_at')
