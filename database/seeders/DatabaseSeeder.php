@@ -25,6 +25,12 @@ class DatabaseSeeder extends Seeder
             //PermissionSeeder::class,
             //UserSeeder::class,
 
+            DocumentoBaixaTipoSeeder::class,
+            DocumentoClasseSeeder::class,
+            DocumentoStatusSeeder::class,
+            DocumentoTipoSeeder::class,
+            PessoaGrupoSeeder::class,
+
         ]);
     }
 }
