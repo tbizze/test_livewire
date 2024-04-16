@@ -15,28 +15,39 @@ class DocumentoClasseSeeder extends Seeder
     {
         $items = [
             [
+                'nome' => 'NFe',
+                'order' => 1,
+                'notas' => 'Nota fiscal paulista.'
+            ],
+            [
                 'nome' => 'NFs',
+                'order' => 2,
                 'notas' => 'Nota fiscal de serviço eletrônica.'
             ],
             [
                 'nome' => 'NF danf',
+                'order' => 3,
                 'notas' => 'Nota fiscal eletrônica.'
             ],
             [
-                'nome' => 'NFe',
-                'notas' => 'Nota fiscal paulista.'
-            ],
-            [
                 'nome' => 'RPA',
+                'order' => 4,
                 'notas' => 'Recibo de profissional autônomo.'
             ],
             [
                 'nome' => 'RPS',
+                'order' => 5,
                 'notas' => 'Recibo provisório de serviços.'
             ],
             [
-                'nome' => 'Guia receita federal',
-                'notas' => 'Abrangência CDP.'
+                'nome' => 'GPS',
+                'order' => 6,
+                'notas' => 'Guia p/ pgto. INSS.'
+            ],
+            [
+                'nome' => 'DARF',
+                'order' => 7,
+                'notas' => 'Guia p/ pgto. DARF.'
             ],
         ];
 

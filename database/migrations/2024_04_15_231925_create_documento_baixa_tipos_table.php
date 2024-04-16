@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('documento_baixa_tipos', function (Blueprint $table) {
             $table->id();
             $table->string('nome', 40);
-            $table->enum('natureza', ['C,D']);
+            $table->enum('natureza', ['C', 'D']);
             $table->boolean('ativo')->default(true);
             $table->string('notas')->nullable();
 
