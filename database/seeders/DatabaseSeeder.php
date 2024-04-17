@@ -25,11 +25,21 @@ class DatabaseSeeder extends Seeder
             //PermissionSeeder::class,
             //UserSeeder::class,
 
-            DocumentoBaixaTipoSeeder::class,
+            /* DocumentoBaixaTipoSeeder::class,
             DocumentoClasseSeeder::class,
             DocumentoStatusSeeder::class,
             DocumentoTipoSeeder::class,
-            PessoaGrupoSeeder::class,
+            PessoaGrupoSeeder::class, */
+
+            /* PlanoCtaSeeder::class,
+            PlanoCtaItemSeeder::class, */
+
+            /* PessoaSeeder::class,
+            CtaMovimentoSeeder::class, */
+            
+            //DocumentoSeeder::class,
+            //DocumentoItemSeeder::class,
+            DocumentoBaixaSeeder::class,
 
         ]);
     }

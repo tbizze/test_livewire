@@ -66,11 +66,6 @@ class DocumentoBaixaTipoSeeder extends Seeder
                 'natureza' => 'D',
                 'notas' => 'Pagamento em banco digital.'
             ],
-            [
-                'nome' => 'Internet Banking',
-                'natureza' => 'D',
-                'notas' => 'Pagamento em sistema Pag. Folha.'
-            ],
         ];
 
         foreach ($items as $item) {

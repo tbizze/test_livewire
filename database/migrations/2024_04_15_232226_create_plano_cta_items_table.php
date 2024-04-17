@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('codigo', 30)->index();
             $table->string('cod_externo', 10)->nullable();
             $table->string('nome', 40);
-            $table->enum('natureza', ['C,D']);
+            $table->enum('natureza', ['C','D']);
             $table->boolean('lcto');
             $table->boolean('exibir_dre');
             $table->boolean('ativo')->default(true);

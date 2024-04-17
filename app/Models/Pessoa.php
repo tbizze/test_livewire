@@ -21,7 +21,7 @@ class Pessoa extends Model
      * Lista de campos em que é permitido a persistência no BD.
      */
     protected $fillable = [
-        'nome','notas','ativo','codigo','cpf_cnpj','rg_inscricao','nome_razao','apelido_fantasia'
+        'notas','ativo','codigo','cpf_cnpj','rg_inscricao','nome_razao','apelido_fantasia'
     ];
 
     /**
