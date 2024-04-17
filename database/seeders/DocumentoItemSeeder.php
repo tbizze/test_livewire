@@ -14,6 +14,6 @@ class DocumentoItemSeeder extends Seeder
     public function run(): void
     {
         //
-        $eventos = DocumentoItem::factory(75)->create();
+        $eventos = DocumentoItem::factory(150)->create();
     }
 }

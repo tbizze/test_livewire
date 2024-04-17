@@ -23,14 +23,15 @@ class DocumentoFactory extends Factory
         $data_venc = $this->randomDate()->format('Y-m-d');
         $now = date('Y-m-d');
 
+        //dd($this->getRandomStatus());
+
         if ($data_venc > $now) {
-            $status = $this->getRandom(DocumentoStatus::class);
-            if ($status == 3) {
-                $status = $this->getRandom(DocumentoStatus::class);
-            }
-        }elseif ($data_venc < $now) {
+            $status = $this->getRandomStatus(DocumentoStatus::class);
+        }else{
             $status = 3; // status => VENCIDO
         }
+        //dd($data_venc, $now, $status);
+
 
         return [
             // 'data_emissao','data_venc','notas','codigo','condicao','parcela','documento_tipo_id','documento_classe_id','pessoa_id','status_id'
@@ -43,8 +44,8 @@ class DocumentoFactory extends Factory
             'parcela' => 0,
             'documento_tipo_id' => $this->getRandom(DocumentoTipo::class),
             'documento_classe_id' => $this->getRandom(DocumentoClasse::class),
+            'documento_status_id' => $status,
             'pessoa_id' => $this->getRandom(Pessoa::class),
-            'status_id' => $status,
         ];
     }
 
@@ -59,6 +60,15 @@ class DocumentoFactory extends Factory
     private function getRandom($model)
     {
         $random = $model::all()->random(1)->pluck('id'); 
+        return $random[0];
+    }
+    private function getRandomStatus()
+    {
+        //$random = $model::all()->random(1)->pluck('id'); 
+        $random = DocumentoStatus::query()
+            ->whereNotIn('id', [3])
+            ->get()
+            ->random(1)->pluck('id'); 
         return $random[0];
     }
 }

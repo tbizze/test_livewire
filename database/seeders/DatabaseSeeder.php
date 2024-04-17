@@ -29,17 +29,17 @@ class DatabaseSeeder extends Seeder
             DocumentoClasseSeeder::class,
             DocumentoStatusSeeder::class,
             DocumentoTipoSeeder::class,
-            PessoaGrupoSeeder::class, */
+            PessoaGrupoSeeder::class,
 
-            /* PlanoCtaSeeder::class,
-            PlanoCtaItemSeeder::class, */
+            PlanoCtaSeeder::class,
+            PlanoCtaItemSeeder::class,
 
-            /* PessoaSeeder::class,
+            PessoaSeeder::class,
             CtaMovimentoSeeder::class, */
             
             //DocumentoSeeder::class,
             //DocumentoItemSeeder::class,
-            DocumentoBaixaSeeder::class,
+            //DocumentoBaixaSeeder::class,
 
         ]);
     }

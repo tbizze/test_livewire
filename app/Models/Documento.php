@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Documento extends Model
@@ -21,7 +22,7 @@ class Documento extends Model
      * Lista de campos em que é permitido a persistência no BD.
      */
     protected $fillable = [
-        'data_emissao','data_venc','notas','codigo','condicao','parcela','documento_tipo_id','documento_classe_id','pessoa_id','status_id'
+        'data_emissao','data_venc','notas','codigo','condicao','parcela','documento_tipo_id','documento_classe_id','pessoa_id','documento_status_id'
     ];
 
     /**
@@ -56,7 +57,7 @@ class Documento extends Model
      */
     public function toDocumentoStatus(): BelongsTo
     {
-        return $this->belongsTo(DocumentoStatus::class,'status_id');
+        return $this->belongsTo(DocumentoStatus::class,'documento_status_id');
     }
 
     /**
@@ -72,7 +73,7 @@ class Documento extends Model
      * RELACIONAMENTO: O Documento 'tem muitos' (hasMany) DocumentoItem. 
      * Obtenha essa coleção de registros.
      */
-    public function hasDocumentoItem(): HasMany
+    public function hasDocumentoItems(): HasMany
     {
         return $this->hasMany(DocumentoItem::class);
     }
@@ -81,8 +82,17 @@ class Documento extends Model
      * RELACIONAMENTO: O Documento 'tem muitos' (hasMany) DocumentoBaixa. 
      * Obtenha essa coleção de registros.
      */
-    public function hasDocumentoBaixas(): HasMany
+    /* public function hasDocumentoBaixas(): HasMany
     {
         return $this->hasMany(DocumentoBaixa::class);
+    } */
+
+    /**
+     * RELACIONAMENTO: O Documento 'tem um' (hasMany) DocumentoBaixa. 
+     * Obtenha essa coleção de registros.
+     */
+    public function hasDocumentoBaixa(): HasOne
+    {
+        return $this->hasOne(DocumentoBaixa::class);
     }
 }

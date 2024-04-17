@@ -25,9 +25,9 @@ return new class extends Migration
             // Chave estrangeira: PlanoCtaItem.
             $table->foreignId('documento_classe_id')->constrained('documento_classes');
             // Chave estrangeira: PlanoCtaItem.
-            $table->foreignId('pessoa_id')->constrained('pessoas');
+            $table->foreignId('documento_status_id')->constrained('documento_statuses');
             // Chave estrangeira: PlanoCtaItem.
-            $table->foreignId('status_id')->constrained('documento_statuses');
+            $table->foreignId('pessoa_id')->constrained('pessoas');
 
             // Data de criação e de edição.
             $table->timestamps();
@@ -45,8 +45,8 @@ return new class extends Migration
         Schema::table('documentos', function (Blueprint $table) {
             $table->dropForeign(['documento_tipo_id']);
             $table->dropForeign(['documento_classe_id']);
+            $table->dropForeign(['documento_status_id']);
             $table->dropForeign(['pessoa_id']);
-            $table->dropForeign(['status_id']);
         });
         Schema::dropIfExists('documentos');
     }
