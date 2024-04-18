@@ -82,10 +82,10 @@ class Documento extends Model
      * RELACIONAMENTO: O Documento 'tem muitos' (hasMany) DocumentoBaixa. 
      * Obtenha essa coleção de registros.
      */
-    /* public function hasDocumentoBaixas(): HasMany
+    public function hasDocumentoBaixas(): HasMany
     {
         return $this->hasMany(DocumentoBaixa::class);
-    } */
+    }
 
     /**
      * RELACIONAMENTO: O Documento 'tem um' (hasMany) DocumentoBaixa. 
@@ -94,5 +94,13 @@ class Documento extends Model
     public function hasDocumentoBaixa(): HasOne
     {
         return $this->hasOne(DocumentoBaixa::class);
+    }
+
+    /**
+     * Scope a query to only include users of a given type.
+     */
+    public function scopeFillTipo($query, $tipo_id): void
+    {
+        $query->where('documento_tipo_id', $tipo_id);
     }
 }
