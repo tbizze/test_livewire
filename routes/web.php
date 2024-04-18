@@ -31,10 +31,10 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/settings/roles', RoleIndex::class)->name('admin.roles.index');
+    /* Route::get('/settings/roles', RoleIndex::class)->name('admin.roles.index');
     Route::get('/settings/permissions', PermissionIndex::class)->name('settings.permissions.index');
     Route::get('/settings/role-permissions/{role}/edit', RolePermissionsEdit::class)->name('settings.role-permissions');
-    Route::get('/settings/user-has-roles', UserRolesIndex::class)->name('settings.user-roles.index');
+    Route::get('/settings/user-has-roles', UserRolesIndex::class)->name('settings.user-roles.index'); */
 });
 
 
