@@ -11,6 +11,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 use Faker\Factory as Faker;
+use Illuminate\Support\Facades\DB;
 
 class DocumentoBaixaSeeder extends Seeder
 {
@@ -24,13 +25,26 @@ class DocumentoBaixaSeeder extends Seeder
         // 
         //$eventos = DocumentoBaixa::factory(20)->create();
 
+        $docs_update = '';
         for ($count = 1; $count <= 20; $count++) {
             $dados = $this->getDados();
             array_push($this->documento_id_used, $dados['documento_id']);
+            
+            DB::transaction(function() use ($dados, $docs_update) {
 
-            DocumentoBaixa::create($dados);
+                // Cria DocumentoBaixa.
+                DocumentoBaixa::create($dados);
+
+                // Atualiza status do documento para 1=>QUITADO.
+                $documento = Documento::find($dados['documento_id']);
+                if($documento->documento_status_id != 1){
+                    Documento::find($dados['documento_id'])
+                        ->update(['documento_status_id' => 1]);
+                    //$docs_update = $docs_update . ', ' . $dados['documento_id'];
+                }
+            });
         }
-        //dd($this->documento_id_used, $dados['documento_id']);
+        //dd($this->documento_id_used, $dados['documento_id'],$docs_update);
     }
 
     private function getDados()
