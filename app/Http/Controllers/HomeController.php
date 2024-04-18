@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function test()
     {
         $test = Documento::query()
-        ->with('hasDocumentoBaixa')
+        ->with('hasDocumentoBaixa','hasDocumentoBaixas')
         ->withAggregate('toPessoa', 'nome_razao')
         ->withAggregate('toDocumentoStatus', 'nome')
         ->withAggregate('toDocumentoClasse', 'nome')
@@ -20,6 +20,8 @@ class HomeController extends Controller
         ->withSum(['hasDocumentoItems'], 'valor')
         ->withCount(['hasDocumentoItems'], 'id')
         ->withCount(['hasDocumentoBaixa'], 'id')
+
+        //->has('hasDocumentoBaixa')
 
         ->get()
         ;
