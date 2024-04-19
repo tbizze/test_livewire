@@ -5,7 +5,7 @@
             <x-mary-input icon="o-magnifying-glass" placeholder="Search..." wire:model.live="search" />
         </x-slot:middle>
         <x-slot:actions>
-            @can('admin.roles.create')
+            @can('setting.roles.create')
                 <x-mary-button icon="o-plus" class="btn-primary" @click="$wire.showModalRegistro()" />
             @endcan
 
@@ -18,12 +18,12 @@
             with-pagination :sort-by="$sortBy">
             @scope('actions', $registros)
                 <div class="flex gap-1">
-                    @can('admin.roles.edit')
-                        <x-mary-button icon="o-shield-exclamation" :link="route('admin.role-has-permissions', $registro->id)" wire:navigate spinner
+                    @can('setting.roles.edit')
+                        <x-mary-button icon="o-shield-exclamation" :link="route('setting.role-permissions', $registros->id)" wire:navigate spinner
                             class="btn-sm btn-outline border-none p-1" />
                     @endcan
-                    @can('admin.roles.delete')
-                        <x-mary-button icon="o-trash" wire:click="confirmDelete({{ $registro->id }})" spinner
+                    @can('setting.roles.delete')
+                        <x-mary-button icon="o-trash" wire:click="confirmDelete({{ $registros->id }})" spinner
                             class="btn-sm btn-outline border-none text-error p-1" />
                     @endcan
                 </div>
@@ -40,7 +40,7 @@
 
             <x-slot:actions>
                 <x-mary-button label="Cancel" @click="$wire.modalRegistro = false" />
-                @can('admin.roles.edit')
+                @can('setting.roles.edit')
                     <x-mary-button label="Salvar" class="btn-primary" type="submit" spinner="save" />
                 @endcan
             </x-slot:actions>

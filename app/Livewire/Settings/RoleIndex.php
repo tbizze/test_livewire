@@ -91,10 +91,9 @@ class RoleIndex extends Component
     */
 
     // Método p/ carregar inputs do form e exibir modal.
-    public function edit($id)
+    public function edit(Role $registro)
     {
-        //$registro = Role::find($id);
-        $this->form->setRegistro($id);
+        $this->form->setRegistro($registro);
         $this->registroEditMode = true;
         $this->modalRegistro = true;
     }
